@@ -2,12 +2,14 @@
 
 可直接运行的 React + TypeScript Agent Web 示例，包含流式对话、工具结果和可选模型接入。
 
+[在线演示](https://agent-web-starter.scorpioaoe.workers.dev/)（演示模式，未接入真实模型）。
+
 ```sh
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-默认无需密钥：演示模式执行只读示例工具，并流式展示固定回复，未调用语言模型。接入真实模型见[服务配置与部署](docs/deployment.md)。
+默认无需密钥：执行只读示例工具，并流式展示固定回复。接入真实模型见[服务配置与部署](docs/deployment.md)。
 
 支持 Vercel、Cloudflare Pages/Worker；GitHub Pages 可展示界面或连接独立后端。各部署入口和能力边界见[部署说明](docs/deployment.md)。
 
