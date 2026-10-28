@@ -1,0 +1,76 @@
+{
+  "rules": {
+    "block-no-empty": true,
+    "color-no-invalid-hex": true,
+    "color-no-hex": true,
+    "declaration-block-no-duplicate-properties": true,
+    "property-no-unknown": true,
+    "unit-no-unknown": true,
+    "function-no-unknown": true,
+    "declaration-property-value-allowed-list": {
+      "font": ["inherit", "initial", "unset", "revert", "revert-layer"],
+      "font-size": [
+        "/^var\\(--text-[a-z0-9-]+\\)$/",
+        "inherit",
+        "initial",
+        "unset",
+        "revert",
+        "revert-layer"
+      ],
+      "font-family": [
+        "/^var\\(--font-[a-z0-9-]+\\)$/",
+        "inherit",
+        "initial",
+        "unset",
+        "revert",
+        "revert-layer"
+      ],
+      "font-weight": [
+        "/^var\\(--weight-[a-z0-9-]+\\)$/",
+        "inherit",
+        "initial",
+        "unset",
+        "revert",
+        "revert-layer"
+      ],
+      "line-height": [
+        "/^var\\(--leading-[a-z0-9-]+\\)$/",
+        "normal",
+        "inherit",
+        "initial",
+        "unset",
+        "revert",
+        "revert-layer"
+      ],
+      "border-radius": [
+        "/^var\\(--radius-[a-z0-9-]+\\)$/",
+        "0",
+        "inherit",
+        "initial",
+        "unset",
+        "revert",
+        "revert-layer"
+      ],
+      "/^(?:color|background|background-color|border(?:-[a-z]+)*-color|outline-color)$/": [
+        "/^var\\(--color-[a-z0-9-]+\\)$/",
+        "transparent",
+        "currentColor",
+        "inherit",
+        "initial",
+        "unset",
+        "revert",
+        "revert-layer",
+        "ButtonText",
+        "Highlight"
+      ]
+    }
+  },
+  "overrides": [
+    {
+      "files": ["src/design-tokens.css"],
+      "rules": {
+        "color-no-hex": null
+      }
+    }
+  ]
+}

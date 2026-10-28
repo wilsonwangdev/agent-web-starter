@@ -1,0 +1,37 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.browser-tests.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.vite.json"
+    },
+    {
+      "path": "./tsconfig.e2e.json"
+    },
+    {
+      "path": "./tsconfig.services.json"
+    },
+    {
+      "path": "./tsconfig.worker-tests.json"
+    },
+    {
+      "path": "./packages/ui"
+    },
+    {
+      "path": "./tsconfig.vercel.json"
+    }
+  ],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}

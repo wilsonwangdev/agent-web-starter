@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="%HTML_APP_LOCALE%">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="%HTML_APP_DESCRIPTION%" />
+    <meta name="application-name" content="%HTML_APP_NAME%" />
+    <meta name="application-version" content="%HTML_APP_VERSION%" />
+    <meta name="theme-color" content="%HTML_APP_THEME_COLOR%" />
+    <title>%HTML_APP_TITLE%</title>
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon-180x180.png" sizes="180x180" />
+    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
+    <link rel="stylesheet" href="/src/startup.css" />
+    <script type="module" src="/src/bootstrap.ts"></script>
+  </head>
+  <body>
+    <div id="root">
+      <main data-app-boot class="startup-shell" aria-busy="true">
+        <output class="startup-status">
+          <span class="startup-zh" lang="zh-CN">%HTML_BOOT_ZH_LOADING%</span>
+          <span class="startup-en" lang="en">%HTML_BOOT_EN_LOADING%</span>
+        </output>
+        <div class="startup-sidebar" aria-hidden="true">
+          <div class="startup-brand">
+            <span data-boot-placeholder class="startup-mark"></span>
+            <span data-boot-placeholder class="startup-brand-label"></span>
+          </div>
+          <div data-boot-placeholder class="startup-new"></div>
+          <div data-boot-placeholder class="startup-history"></div>
+          <div data-boot-placeholder class="startup-footer"></div>
+        </div>
+        <div class="startup-header" aria-hidden="true">
+          <span data-boot-placeholder class="startup-header-title"></span>
+          <span data-boot-placeholder class="startup-header-actions"></span>
+        </div>
+        <div class="startup-main" aria-hidden="true">
+          <div class="startup-content">
+            <div class="startup-welcome">
+              <span data-boot-placeholder class="startup-eyebrow"></span>
+              <span data-boot-placeholder class="startup-title"></span>
+              <span data-boot-placeholder class="startup-description"></span>
+              <span data-boot-placeholder class="startup-description is-short"></span>
+              <div class="startup-suggestions">
+                <span data-boot-placeholder class="startup-suggestion"></span>
+                <span data-boot-placeholder class="startup-suggestion"></span>
+              </div>
+            </div>
+            <div data-boot-composer class="startup-composer">
+              <span data-boot-placeholder class="startup-input"></span>
+              <span data-boot-placeholder class="startup-send"></span>
+            </div>
+            <span data-boot-placeholder class="startup-caption"></span>
+          </div>
+        </div>
+      </main>
+    </div>
+    <main id="startup-error" data-boot-recovery class="startup-recovery" hidden>
+      <section role="alert" class="startup-recovery-content">
+        <h1>
+          <span class="startup-zh" lang="zh-CN">%HTML_BOOT_ZH_FAILED%</span>
+          <span class="startup-en" lang="en">%HTML_BOOT_EN_FAILED%</span>
+        </h1>
+        <p>
+          <span class="startup-zh" lang="zh-CN">%HTML_BOOT_ZH_HINT%</span>
+          <span class="startup-en" lang="en">%HTML_BOOT_EN_HINT%</span>
+        </p>
+        <a data-boot-reload class="startup-reload" href="">
+          <span class="startup-zh" lang="zh-CN">%HTML_BOOT_ZH_RELOAD%</span>
+          <span class="startup-en" lang="en">%HTML_BOOT_EN_RELOAD%</span>
+        </a>
+      </section>
+    </main>
+    <noscript>
+      <style>
+        #root,
+        #startup-error {
+          display: none !important;
+        }
+      </style>
+      <main data-boot-noscript class="startup-recovery">
+        <p class="startup-recovery-content">
+          <span class="startup-zh" lang="zh-CN">%HTML_BOOT_ZH_NOSCRIPT%</span>
+          <span class="startup-en" lang="en">%HTML_BOOT_EN_NOSCRIPT%</span>
+        </p>
+      </main>
+    </noscript>
+  </body>
+</html>
