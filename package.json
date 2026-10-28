@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "可直接运行的 Agent 对话与工具调用示例模板",
-  "homepage": "https://github.com/wilsonwangdev/agent-web-starter#readme",
+  "homepage": "https://agent-web-starter.scorpioaoe.workers.dev/",
   "bugs": {
     "url": "https://github.com/wilsonwangdev/agent-web-starter/issues"
   },
