@@ -1,0 +1,82 @@
+/* Official shadcn Radix utilities reuse the application's semantic tokens. */
+@layer theme, base, components, utilities, app;
+@import "tailwindcss/theme.css" layer(theme) prefix(ui);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(ui) source(none);
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@source "./";
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
+@theme inline {
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-body);
+  --font-weight-medium: var(--weight-medium);
+  --font-weight-semibold: var(--weight-semibold);
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-body);
+  --text-xs--line-height: var(--leading-normal);
+  --text-sm--line-height: var(--leading-normal);
+  --text-base--line-height: var(--leading-normal);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-md);
+  --radius-xl: var(--radius-lg);
+  --shadow-md: var(--shadow-popover);
+  --color-background: var(--color-surface);
+  --color-foreground: var(--color-text);
+  --color-popover: var(--color-raised);
+  --color-popover-foreground: var(--color-text);
+  --color-primary: var(--color-action);
+  --color-primary-foreground: var(--color-action-text);
+  --color-secondary: var(--color-subtle);
+  --color-secondary-foreground: var(--color-text);
+  --color-muted: var(--color-subtle);
+  --color-muted-foreground: var(--color-muted);
+  --color-accent: var(--color-accent-soft);
+  --color-accent-foreground: var(--color-text);
+  --color-destructive: var(--color-error);
+  --color-border: var(--color-border);
+  --color-input: var(--color-border-strong);
+  --color-ring: var(--color-accent-line);
+  --color-overlay: var(--color-overlay);
+}
+
+@layer components {
+  :root {
+    --secondary: var(--color-subtle);
+    --foreground: var(--color-text);
+  }
+  [data-slot="button"],
+  [data-slot="select-trigger"],
+  [data-slot="select-item"] {
+    min-height: var(--control-height);
+  }
+  [data-slot="button"][data-size^="icon"] {
+    min-width: var(--control-height);
+  }
+  [data-slot="select-item"] {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  [data-slot="select-trigger"] {
+    min-width: 0;
+  }
+  [data-slot="select-content"] {
+    max-width: calc(100vw - var(--safe-left) - var(--safe-right) - var(--space-4));
+  }
+}
+
+@layer app {
+  [data-slot="select-content"] {
+    z-index: 60;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="dialog-content"],
+    [data-slot="dialog-overlay"],
+    [data-slot="select-content"] {
+      animation: none;
+      transition: none;
+    }
+  }
+}

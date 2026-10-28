@@ -1,0 +1,11 @@
+# 默认演示模式不调用模型，无需密钥。
+AGENT_MODE=demo
+
+# 切换为 model 时，配置服务端变量；不要提交真实密钥。
+# MODEL_BASE_URL=https://api.example.com/v1
+# MODEL_NAME=your-model
+# MODEL_API_KEY=
+# APP_ACCESS_TOKEN=
+
+# 前后端分开托管时，允许这些精确源地址；逗号分隔，不含路径。
+# AGENT_ALLOWED_ORIGINS=https://example.github.io

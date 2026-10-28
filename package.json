@@ -1,0 +1,113 @@
+{
+  "name": "agent-web-starter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "可直接运行的 Agent 对话与工具调用示例模板",
+  "homepage": "https://github.com/wilsonwangdev/agent-web-starter#readme",
+  "bugs": {
+    "url": "https://github.com/wilsonwangdev/agent-web-starter/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilsonwangdev/agent-web-starter.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "tsc -b && vp build",
+    "preview": "vp preview",
+    "assets:generate": "pwa-assets-generator",
+    "lint": "vp lint --deny-warnings",
+    "lint:fix": "vp lint --fix",
+    "fmt": "vp fmt",
+    "fmt:check": "vp fmt --check",
+    "test": "vp test run",
+    "check": "vp check --deny-warnings && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm test:e2e && pnpm test:pages",
+    "prepare": "husky",
+    "deploy:dry": "pnpm build && wrangler deploy --dry-run",
+    "deploy": "pnpm build && wrangler deploy",
+    "lint:styles": "stylelint \"src/**/*.css\" \"packages/**/*.css\" --max-warnings 0",
+    "typecheck": "tsc -b",
+    "test:watch": "vp test watch",
+    "test:node": "vp test run --project node",
+    "test:browser": "vp test run --project \"browser-*\"",
+    "test:worker": "vp test run --project worker",
+    "check:staged": "lint-staged --hide-all --concurrent false",
+    "test:e2e": "pnpm build && playwright test",
+    "build:cached": "vp run production-build",
+    "build:static": "rimraf .wrangler/deploy/config.json && tsc -b && vp build --mode static",
+    "build:pages": "tsc -b && vp build --mode pages",
+    "build:cloudflare-pages": "pnpm build:static && wrangler pages functions build --build-output-directory dist/static --outdir .wrangler/pages-functions --output-routes-path dist/static/_routes.json",
+    "preview:cloudflare-pages": "wrangler pages dev dist/static",
+    "deploy:cloudflare-pages": "pnpm build:cloudflare-pages && wrangler pages deploy dist/static",
+    "test:pages": "pnpm build:pages --base /example/ && playwright test --config playwright.pages.config.ts"
+  },
+  "dependencies": {
+    "@agent-web-starter/ui": "workspace:*",
+    "@ai-sdk/openai-compatible": "3.0.79",
+    "@ai-sdk/react": "4.0.158",
+    "@fontsource-variable/geist": "5.3.0",
+    "@fontsource-variable/geist-mono": "5.3.0",
+    "ai": "7.0.154",
+    "i18next": "26.5.10",
+    "lucide-react": "1.61.0",
+    "next-themes": "0.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-i18next": "17.1.8",
+    "react-markdown": "10.1.0",
+    "react-router": "8.5.0",
+    "remark-gfm": "4.0.1",
+    "use-local-storage-state": "20.0.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.65.0",
+    "@cloudflare/vitest-plugin": "1.4.7",
+    "@cloudflare/workers-types": "5.20261025.1",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/web-app-manifest": "1.0.9",
+    "@vite-pwa/assets-generator": "2.0.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "@vitest/browser-playwright": "catalog:",
+    "husky": "9.1.7",
+    "lint-staged": "17.6.0",
+    "playwright": "1.64.1",
+    "rimraf": "6.1.3",
+    "shadcn": "4.22.1",
+    "stylelint": "17.16.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "7.0.2",
+    "vite": "catalog:",
+    "vite-plus": "catalog:",
+    "vitest": "catalog:",
+    "vitest-browser-react": "2.3.0",
+    "wrangler": "4.152.0"
+  },
+  "config": {
+    "gitleaksImage": "ghcr.io/gitleaks/gitleaks:v8.30.1@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "26.12.1",
+      "onFail": "download"
+    }
+  },
+  "engines": {
+    "node": "^24.11.0 || >=26 <27",
+    "pnpm": ">=12 <13"
+  },
+  "packageManager": "pnpm@12.15.0",
+  "product": {
+    "displayName": "Agent Web Starter",
+    "tagline": "从对话到工具调用",
+    "locale": "zh-CN",
+    "storageNamespace": "agent-web-starter",
+    "themeColor": "#27272f"
+  }
+}
